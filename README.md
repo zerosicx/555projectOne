@@ -6,10 +6,16 @@ There are two main steps in the program execution.
 Observations: from the contig00121.txt file, it seems there are more potential gene sequences in the reverse complemented version of the contig.
 
 Explation of single awk command files:
+
 `extractSingleLine.awk`: except for the first line, prints all other lines with no new line separator, resulting in a single line output.
+
 - Note: to change the input file, modify the file name at the end of the script here.
+
+
 `extractSequences.awk`: for any multiple of 3 occurence of ATG (such that there are multiples of 3 bases (codons) behind and in front of it) extract all possible gene sequences (described above).
+
 `reverseComplement.awk`: given a single line input string, iterate through the string from the 3" to 5" (end to start) to compute the reverse complement by concatenating it repeatedly in reading sequence.
+
 `geneToProtein.awk`: converts a file with lines of genes into their respective proteins.
 - Takes an extra argument:
   - 1: prints the gene, protein on the next line, followed by a blank line (putative form)
