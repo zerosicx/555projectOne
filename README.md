@@ -25,11 +25,11 @@ Step one: `sh stepOne.sh > '../results/stepOneGenes.txt'`
 ORS="" contig00121.txt
 Step two: `sh stepTwo.sh > '../results/stepTwoGenes.txt'`
 
-# (3) Output the Protein Sequences:
+## (3) Output the Protein Sequences:
 Step one proteins: `sh stepOne.sh | awk -f geneToProtein.awk "$1" 2> '../results/stepOneProteins.txt'`
 Step two proteins: `sh stepTwo.sh | awk -f geneToProtein.awk "$1" 2> '../results/stepTwoProteins.txt'`
 
-# (4) Output the putatives file in the results folder
+## (4) Output the putatives file in the results folder
 - The putatives file is in the format: gene, followed by its respective translated protein, followed by a blank line. It should be in sorted order.
 
 Get the putatives file by running: `sh generatePutatives.sh`
