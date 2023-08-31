@@ -22,16 +22,14 @@ Explation of single awk command files:
   - 2: prints only the resultant protein. Useful for producing output for BLASTING.
 
 
-## (1) Output results of step one and step two
-`sh ass1.sh`
+## (1) Output results of step one and step two as PROTEINS
+`sh generateCSVFiles.sh` should output the resultant proteins into the results folder.
 
-## (2) Output the results of step one and step two separately
+## (2) Output the results of step one and step two separately as GENES
 Step one: `sh stepOne.sh > '../results/stepOneGenes.txt'`
-
-ORS="" contig00121.txt
 Step two: `sh stepTwo.sh > '../results/stepTwoGenes.txt'`
 
-## (3) Output the Protein Sequences:
+## (3) Output the protein sequences separately
 Step one proteins: `sh stepOne.sh | awk -f geneToProtein.awk "$1" 2> '../results/stepOneProteins.txt'`
 Step two proteins: `sh stepTwo.sh | awk -f geneToProtein.awk "$1" 2> '../results/stepTwoProteins.txt'`
 
