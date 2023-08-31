@@ -3,7 +3,7 @@ There are two main steps in the program execution.
 (1) Step One: extracting the single DNA sequence from the contig file into a sinlge line, then extracting potential gene sequences. For the scope of this assignment, potential gene sequences are considered as starting with ATG and ending with either TAA, TGA, or TAG.
 (2) Step Two: extrating the single DNA sequence from the contig file into a single line, getting the reverse complement, then extracting gene sequences from that.
 
-Observations: from the contig00121.txt file, it seems there are more potential gene sequences in the reverse complemented version of the contig.
+*When running the commands described below, ensure your terminal is in the SCRIPTS subfolder.*
 
 Explation of single awk command files:
 
