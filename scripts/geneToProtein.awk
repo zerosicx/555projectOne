@@ -62,19 +62,17 @@ function translateCodon(codon){
     start_pos = 1
     protein = ""
 
-    if (NR > 3) {
-        while (start_pos < length(gene) - 3) {
-            codon = substr(gene, start_pos, 3)
-            amino_acid = translateCodon(codon)
-            protein = protein amino_acid
-            start_pos += 3
-        }
-        if (length(protein) >= 60) {
-            if (mode == 1) {
-                print gene "\n" protein "\n\n"
-            } else if (mode == 2) {
-                print protein "\n"
-            }
+    while (start_pos < length(gene) - 3) {
+        codon = substr(gene, start_pos, 3)
+        amino_acid = translateCodon(codon)
+        protein = protein amino_acid
+        start_pos += 2
+    }
+    if (length(protein) >= 60) {
+        if (mode == 1) {
+            print gene "\n" protein "\n\n"
+        } else if (mode == 2) {
+            print protein
         }
     }
 }
