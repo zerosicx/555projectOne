@@ -23,7 +23,11 @@ Explation of single awk command files:
 - Note: to change the input file, modify the file name at the end of the script here.
 
 
-`extractSequences.awk`: for any multiple of 3 occurence of ATG (such that there are multiples of 3 bases (codons) behind and in front of it) extract all possible gene sequences (described above).
+`extractSequences.awk`: extracts all potential gene sequences that are at least 180 bases long (60 residues). Genes must start with "ATG" and end with "TAG", but should have at least ONE codon (3 bases) in the center. (eg. ATGTAG is not considered a valid genne, but ATGATGTAG is.)
+- Takes an extra argument:
+  - 1: Prefix with "[P]" to indicate it came the primary (original) order
+  - 2: Prefix with "[R]" to indicate it came from a reverse complement
+  - No second argument will default it to not prefix with anything
 
 `reverseComplement.awk`: given a single line input string, iterate through the string from the 3" to 5" (end to start) to compute the reverse complement by concatenating it repeatedly in reading sequence.
 
@@ -41,7 +45,7 @@ Step one: `sh stepOne.sh > '../results/stepOneGenes.txt'`
 Step two: `sh stepTwo.sh > '../results/stepTwoGenes.txt'`
 
 ## (3) Output the protein sequences separately
-Step one proteins: `sh stepOne.sh | awk -f geneToProtein.awk "$1" 2> '../results/stepOneProteins.txt'`
+Step one proteins: `sh stepOne.sh | awk -f geneToProtein.awk "$1" 1> '../results/stepOneProteins.txt'`
 Step two proteins: `sh stepTwo.sh | awk -f geneToProtein.awk "$1" 2> '../results/stepTwoProteins.txt'`
 
 ## (4) Output the putatives file in the results folder

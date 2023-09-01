@@ -3,7 +3,7 @@ BEGIN {
         mode = ARGV[2]
         delete ARGV[2]  # Remove the second argument from ARGV
     } else {
-        mode = 1  # Default mode is 1 if no second argument provided
+        mode = 0  # Default mode is 0 if no second argument provided
     }
 }
 
@@ -25,8 +25,10 @@ BEGIN {
         if (length(gene) >= (60 * 3)){
           if (mode == 2){
             print "[R] " gene_start " " gene
-          } else {
+          } else if (mode == 1) {
             print "[P] " gene_start " " gene
+          } else {
+            print gene
           }
         }
         break
