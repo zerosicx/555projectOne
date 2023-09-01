@@ -13,7 +13,7 @@ sh stepTwo.sh
 
 # Output the putatives
 echo "-----Genes, Proteins & Metadata-----"
-echo "Format:"
+echo "Format: Longest to Shortest"
 echo "[P for original contig, R for reverse complement] [start position into the contig] [gene]"
 echo "[corresponding protein]"
 echo "-----------------------------------"
