@@ -13,7 +13,7 @@
       if (codon ~ /^(TAG|TAA|TGA)$/) {
         gene = substr(sequence, gene_start, i - gene_start + 3)
         if (length(gene) >= (60 * 3)){
-          print gene
+          print gene_start " " gene
         }
         break
       }

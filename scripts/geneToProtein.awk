@@ -70,7 +70,7 @@ function translateCodon(codon){
     }
     if (length(protein) >= 60) {
         if (mode == 1) {
-            print gene "\n" protein "\n\n"
+            print gene "\n" protein "\n"
         } else if (mode == 2) {
             print protein
         }
