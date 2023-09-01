@@ -1,3 +1,13 @@
+BEGIN {
+    if (ARGC >= 3) {
+        mode = ARGV[2]
+        delete ARGV[2]  # Remove the second argument from ARGV
+    } else {
+        mode = 1  # Default mode is 1 if no second argument provided
+    }
+}
+
+
 {
   sequence = $0
   start_pos = 0
@@ -13,7 +23,11 @@
       if (codon ~ /^(TAG|TAA|TGA)$/) {
         gene = substr(sequence, gene_start, i - gene_start + 3)
         if (length(gene) >= (60 * 3)){
-          print gene_start " " gene
+          if (mode == 2){
+            print "[R] " gene_start " " gene
+          } else {
+            print "[P] " gene_start " " gene
+          }
         }
         break
       }
