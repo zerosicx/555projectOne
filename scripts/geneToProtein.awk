@@ -8,7 +8,7 @@ BEGIN {
 }
 
 function translateCodon(codon){
-    # Tse regular expressions to change them into amino acids
+    # The regular expressions to change them into amino acids
     if (codon ~ /ATG/){
         return "M"
     } else if (codon ~ /TT[TC]/) {
@@ -45,7 +45,7 @@ function translateCodon(codon){
         return "C"
     } else if (codon ~ /TGG/) {
         return "W"
-    } else if (codon ~ /AG[AG]/) {
+    } else if (codon ~ /AG[AG]|CG[ATCG]/) {
         return "R"
     } else if (codon ~ /GG[ATCG]/) {
         return "G"
@@ -58,19 +58,20 @@ function translateCodon(codon){
 }
 
 {
-    gene = $0
+    gene = $3
     start_pos = 1
     protein = ""
 
-    while (start_pos < length(gene) - 3) {
+    while (start_pos <= length(gene)) {
         codon = substr(gene, start_pos, 3)
         amino_acid = translateCodon(codon)
         protein = protein amino_acid
-        start_pos += 2
+        start_pos += 3
     }
+
     if (length(protein) >= 60) {
         if (mode == 1) {
-            print gene "\n" protein "\n"
+            print $1 " " $2 " " $3 "\n" protein "\n"
         } else if (mode == 2) {
             print protein
         }
