@@ -5,6 +5,17 @@ There are two main steps in the program execution.
 
 *When running the commands described below, ensure your terminal is in the SCRIPTS subfolder.*
 
+To get the output of all steps into one file for the marker's convenience, you can run:
+
+```
+sh ass1.sh > '../results/output.txt'
+```
+This will show:
+- The full contig
+- The sequences extracted from the original ordering (including position into the string)
+- The sequences extracted from the reverse complement (including position into the string)
+- The genes, corresponding proteins, and metadata all together.
+
 Explation of single awk command files:
 
 `extractSingleLine.awk`: except for the first line, prints all other lines with no new line separator, resulting in a single line output.
