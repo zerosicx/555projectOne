@@ -24,9 +24,9 @@ BEGIN {
         gene = substr(sequence, gene_start, i - gene_start + 3)
         if (length(gene) >= (60 * 3)){
           if (mode == 2){
-            print "[R] " gene_start " " gene
+            print "[r] " gene_start " " gene
           } else if (mode == 1) {
-            print "[P] " gene_start " " gene
+            print "[c] " gene_start " " gene
           } else {
             print gene
           }
